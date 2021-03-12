@@ -10,6 +10,7 @@ TagManager:
   - ImpactArea
   - Wall
   - House
+  - Tile
   layers:
   - Default
   - TransparentFX
