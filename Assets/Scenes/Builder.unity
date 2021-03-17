@@ -1034,6 +1034,7 @@ MonoBehaviour:
     m_Bits: 1
   baseTurr: {fileID: 4031304447854671704, guid: cf45999fc1397be44a072f1495b44d57,
     type: 3}
+  tile: {fileID: 360494569129161519, guid: a864e87d709227044acbf039e13bc197, type: 3}
   castle: {fileID: 2820284543028063584, guid: 724482cff2ca9bd48b388b70fea3e4fe, type: 3}
   wP: {fileID: 6766325464754287780, guid: b7bd493a72a8bf8409cb1849226a3b4f, type: 3}
   spawn: {fileID: 4185507582857224148, guid: c72609a46be6530439b12df3e9d4ed0b, type: 3}

@@ -24,6 +24,7 @@ public class CreateManager : MonoBehaviour
                 go.transform.position = new Vector3(i, 0, j);
                 go.transform.parent = floor.transform;
                 go.name = i + "-" + j;
+                go.GetComponent<Position>().setPosition(i,j);
             }
         }
     }
@@ -43,6 +44,9 @@ public class CreateManager : MonoBehaviour
             }
         }
         goList.Sort(SortByName);
+
+
+
     }
 
     static int SortByName(GameObject p1, GameObject p2)

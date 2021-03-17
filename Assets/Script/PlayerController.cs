@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour
     public float rayLength;
     public LayerMask layerMask;
     public GameObject baseTurr;
+    public GameObject tile;
     public GameObject castle;
     public GameObject wP;
     GameObject selected;
     public GameObject spawn;
     GameObject street;
     bool streetSelected = false;
+    bool castleSelected = false;
 
     private void Awake()
     {
-        selected = castle;
+        selected = tile;
         street = new GameObject();
         street.name = "street";
     }
@@ -30,23 +32,37 @@ public class PlayerController : MonoBehaviour
             selected = baseTurr;
             Debug.Log(selected.name);
             streetSelected = false;
+            castleSelected = false;
+
         }
         else if(Input.GetKeyDown(KeyCode.I))
         {
+            if (!GameObject.Find("Casttle(Clone)")) { 
             selected = castle;
             streetSelected = false;
             Debug.Log(selected.name);
+                castleSelected = true;
+            }
         }
         else if(Input.GetKeyDown(KeyCode.O))
         {
             selected = wP;
             streetSelected = true;
+            castleSelected = false;
             Debug.Log(selected.name);
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
+            selected = tile;
+            streetSelected = false;
+            castleSelected = false;
+            Debug.Log(selected.name);
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
             selected = spawn;
             streetSelected = false;
+            castleSelected = false;
             Debug.Log(selected.name);
         }
 
@@ -62,10 +78,14 @@ public class PlayerController : MonoBehaviour
                         Debug.Log(hit.collider.transform.position);
                         GameObject go = Instantiate(selected, hit.collider.transform.position, hit.collider.transform.rotation);
                         //go.transform.parent = hit.collider.transform.parent;
+                        go.GetComponent<Position>().setPosition(hit.collider.gameObject.GetComponent<Position>().x, hit.collider.gameObject.GetComponent<Position>().y);
                         if (streetSelected)
                         {
                             go.transform.parent = street.transform;
                             go.name = hit.collider.gameObject.name;
+                        }else if (castleSelected)
+                        {
+                            selected = tile;
                         }
                         Destroy(hit.collider.transform.gameObject);
                         break;
