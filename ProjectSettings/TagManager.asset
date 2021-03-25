@@ -12,6 +12,7 @@ TagManager:
   - House
   - Tile
   - CreateManager
+  - Spawner
   layers:
   - Default
   - TransparentFX
