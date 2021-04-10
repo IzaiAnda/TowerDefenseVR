@@ -20,8 +20,8 @@ public class EnemyDetector : MonoBehaviour
     {
         switch (other.tag)
         {
-            case "Enemy":
-                target = other.GetComponent<EnemyController>().damagePoint;
+            case "ImpactArea":
+                target = other.transform.parent.GetComponent<EnemyController>().damagePoint;
                 father.towerHead.transform.LookAt(target);
                 if (Time.time > timeToShot)
                 {

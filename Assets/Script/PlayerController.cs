@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(creative){
             if (Input.GetKeyDown(KeyCode.U))
             {
                 selected = baseTurr;
@@ -102,34 +101,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         
-        }
+        
 
-        else
-        {
-             if (Input.GetKeyDown(KeyCode.U))
-            {
-                selected = baseTurr;
-                Debug.Log(selected.name);
-                streetSelected = false;
-                castleSelected = false;
 
-            }
-            if (Input.GetMouseButtonDown(0)) //&& !EventSystem.current.IsPointerOverGameObject())
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, rayLength, layerMask))
-                {
-                    switch (hit.collider.gameObject.tag)
-                    {
-                        case "Tile":
-                           // switch(hit.collider.transform.parent)
-                            break;
-
-                    }
-                }
-            }
-        }
 
     }
 }

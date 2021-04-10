@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     {
         if (life <= 0)
         {
+            GameObject go = GameObject.Find("LevelController");
+            go.GetComponent<levelController>().addGold(1);
             Destroy(this.gameObject);
         }
         healthBar.setHealth(life);
@@ -32,6 +34,7 @@ public class EnemyController : MonoBehaviour
         {
             case "House":
                 collision.collider.transform.root.gameObject.GetComponent<House>().life -= 1;
+
                 Destroy(this.gameObject);
                 break;
         }

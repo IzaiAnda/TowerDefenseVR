@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public int maxWaves = 3;
 
-    public bool inWave ;
+    public bool inWave;
 
     public Transform enemyPrefav;
 
